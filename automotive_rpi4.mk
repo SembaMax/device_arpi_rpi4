@@ -15,29 +15,24 @@
 #
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
-USE_OEM_TV_APP := true
-$(call inherit-product, device/google/atv/products/atv_base.mk)
+$(call inherit-product, packages/services/Car/car_product/build/car.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-PRODUCT_NAME := rpi4
-PRODUCT_DEVICE := rpi4
-PRODUCT_BRAND := arpi
-PRODUCT_MANUFACTURER := ARPi
+PRODUCT_NAME := automotive_rpi4
+PRODUCT_DEVICE := automotive_rpi4
+PRODUCT_BRAND := Automotive AAOS
+PRODUCT_MANUFACTURER := Automotive ARPi
 PRODUCT_MODEL := Raspberry Pi 4
+PRODUCT_CHARACTERISTICS := automotive
 
 include frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.drm.mode.force=1280x720 \
     gralloc.drm.kms=/dev/dri/card0 \
     ro.opengles.version=196609 \
     ro.hardware.vulkan=broadcom \
     wifi.interface=wlan0 \
     ro.rfkilldisabled=1
-
-# application packages
-PRODUCT_PACKAGES += \
-    DeskClock \
-    RpLauncher
 
 # overlay packages
 PRODUCT_PACKAGES += \
@@ -88,7 +83,6 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-service \
     android.hardware.bluetooth@1.0-impl \
     android.hardware.configstore@1.1-service \
-    android.hardware.tv.cec@1.0-service.mock \
     vndservicemanager
 
 # system configurations
@@ -145,8 +139,3 @@ PRODUCT_COPY_FILES := \
     frameworks/base/data/sounds/effects/ogg/Effect_Tick_48k.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ui/Effect_Tick.ogg \
     frameworks/base/data/sounds/effects/ogg/camera_click_48k.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ui/camera_click.ogg \
     $(PRODUCT_COPY_FILES)
-
-PRODUCT_AAPT_PREF_CONFIG := tvdpi
-PRODUCT_CHARACTERISTICS := tv
-
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)

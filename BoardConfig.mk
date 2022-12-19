@@ -65,10 +65,10 @@ BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_bcmdhd
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/arpi/rpi4/bluetooth
-BOARD_CUSTOM_BT_CONFIG := device/arpi/rpi4/bluetooth/vnd_rpi4.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/arpi/automotive_rpi4/bluetooth
+BOARD_CUSTOM_BT_CONFIG := device/arpi/automotive_rpi4/bluetooth/vnd_rpi4.txt
 
 BOARD_SEPOLICY_DIRS := \
-    device/arpi/rpi4/sepolicy
+    device/arpi/automotive_rpi4/sepolicy
 
-DEVICE_MANIFEST_FILE := device/arpi/rpi4/manifest.xml
+DEVICE_MANIFEST_FILE := device/arpi/automotive_rpi4/manifest.xml
